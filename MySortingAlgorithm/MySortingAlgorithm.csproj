@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B3CBB775-5F73-4B61-94EF-59E1EFE63AB0}</ProjectGuid>
+    <ProjectGuid>{AC7C37A7-1334-488C-AE28-AF7F9E1392A7}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>MySortingAlgorithm</RootNamespace>
     <AssemblyName>MySortingAlgorithm</AssemblyName>

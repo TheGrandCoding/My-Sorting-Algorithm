@@ -14,32 +14,48 @@ namespace MySortingAlgorithm
     {
         List<int> unsorted = new List<int>();
         List<int> sorted = new List<int>();
+        bool resetNeeded = false;
 
         public Form1()
         {
             InitializeComponent();
         }
 
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (txtVal.Text != "")
+            {
+                string item = txtVal.Text;
+                int value;
+                if (int.TryParse(item, out value))
+                {
+                    unsorted.Add(value);
+                    listBox1.Items.Add("Added the value " + value.ToString());
+                }
+                else
+                {
+                    listBox1.Items.Add("That's not a valid input");
+                }
+            }
+            else
+            {
+                listBox1.Items.Add("That's not a valid input");
+            }
+        }
+
         private void btnSort_Click(object sender, EventArgs e)
         {
-            unsorted.Add(5);
-            unsorted.Add(4);
-            unsorted.Add(3);
-            unsorted.Add(2);
-            unsorted.Add(1);
-            unsorted.Add(0);
-
-            foreach (int a in unsorted)
+            foreach (int z in unsorted)
             {
-                sorted.Add(a);
+                sorted.Add(z);
             }
 
-            foreach (int x in unsorted) 
+            foreach (int x in unsorted)
             {
                 int i = 0;
                 foreach (int y in unsorted)
                 {
-                    if (x > y) 
+                    if (x > y)
                     {
                         i += 1;
                     }
@@ -47,10 +63,33 @@ namespace MySortingAlgorithm
                 sorted[i] = x;
             }
 
-            foreach (int z in sorted)
+            listBox1.Items.Add("The sorted list is :");
+            foreach (int j in sorted)
             {
-                listBox1.Items.Add(z);
+                listBox1.Items.Add(j);
             }
+            resetNeeded = true;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (resetNeeded)
+            {
+                btnAdd.Visible = false;
+                btnSort.Visible = false;
+                btnReset.Visible = true;
+            }
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            btnAdd.Visible = true;
+            btnSort.Visible = true;
+            btnReset.Visible = false;
+            resetNeeded = false;
+
+            unsorted.Clear();
+            sorted.Clear();
         }
     }
 }
