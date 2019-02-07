@@ -41,6 +41,8 @@ namespace MySortingAlgorithm
             {
                 listBox1.Items.Add("That's not a valid input");
             }
+            txtVal.Clear();
+            txtVal.Focus();
         }
 
         private void btnSort_Click(object sender, EventArgs e)
@@ -53,15 +55,23 @@ namespace MySortingAlgorithm
             foreach (int x in unsorted)
             {
                 int i = 0;
+                int oddCounter = 0;
                 foreach (int y in unsorted)
                 {
                     if (x > y)
                     {
                         i += 1;
                     }
+                    else if (x == y)
+                    {
+                        if (oddCounter > 1)
+                        {
+                            //odd.Add(x);
+                        }
+                    }
                 }
                 sorted[i] = x;
-            }
+            }          
 
             listBox1.Items.Add("The sorted list is :");
             foreach (int j in sorted)
@@ -90,6 +100,7 @@ namespace MySortingAlgorithm
 
             unsorted.Clear();
             sorted.Clear();
+            //odd.Clear();
         }
     }
 }
