@@ -14,6 +14,7 @@ namespace MySortingAlgorithm
     {
         List<int> unsorted = new List<int>();
         List<int> sorted = new List<int>();
+        List<int> same = new List<int>();
         bool resetNeeded = false;
 
         public Form1()
@@ -47,38 +48,27 @@ namespace MySortingAlgorithm
 
         private void btnSort_Click(object sender, EventArgs e)
         {
-            foreach (int z in unsorted)
-            {
-                sorted.Add(z);
-            }
+            sorted = unsorted.Distinct().ToList();
 
             foreach (int x in unsorted)
             {
                 int i = 0;
-                int oddCounter = 0;
                 foreach (int y in unsorted)
                 {
                     if (x > y)
                     {
                         i += 1;
                     }
-                    else if (x == y)
-                    {
-                        if (oddCounter > 1)
-                        {
-                            //odd.Add(x);
-                        }
-                    }
                 }
                 sorted[i] = x;
-            }          
+            }
 
             listBox1.Items.Add("The sorted list is :");
             foreach (int j in sorted)
             {
                 listBox1.Items.Add(j);
             }
-            resetNeeded = true;
+            resetNeeded = true;       
         }
 
         private void timer1_Tick(object sender, EventArgs e)
