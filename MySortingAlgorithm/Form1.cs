@@ -24,14 +24,28 @@ namespace MySortingAlgorithm
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            if (listBox2.Items.Count == 0)
+            {
+                listBox2.Items.Add("Unsorted List :");
+            }
+
             if (txtVal.Text != "")
             {
                 string item = txtVal.Text;
                 int value;
+
                 if (int.TryParse(item, out value))
                 {
-                    unsorted.Add(value);
-                    listBox1.Items.Add("Added the value " + value.ToString());
+                    if (!unsorted.Contains(value))
+                    {
+                        unsorted.Add(value);
+                        listBox1.Items.Add("Added the value " + value.ToString());
+                        listBox2.Items.Add(value.ToString());
+                    }
+                    else
+                    {
+                        listBox1.Items.Add(value.ToString() + " is alreay in the list");
+                    }
                 }
                 else
                 {
@@ -62,17 +76,19 @@ namespace MySortingAlgorithm
                 }
                 sorted[i] = x;
             }
+            listBox2.Items.Clear();
+            listBox2.Items.Add("Sorted List :");
 
-            listBox1.Items.Add("The sorted list is :");
-            foreach (int j in sorted)
+            for (int j =0; j < unsorted.Count();j++)
             {
-                listBox1.Items.Add(j);
+                listBox2.Items.Add(sorted[j]);
             }
             resetNeeded = true;       
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+                 
             if (resetNeeded)
             {
                 btnAdd.Visible = false;
@@ -83,6 +99,9 @@ namespace MySortingAlgorithm
 
         private void btnReset_Click(object sender, EventArgs e)
         {
+            listBox1.Items.Clear();
+            listBox2.Items.Clear();
+
             btnAdd.Visible = true;
             btnSort.Visible = true;
             btnReset.Visible = false;
@@ -90,7 +109,7 @@ namespace MySortingAlgorithm
 
             unsorted.Clear();
             sorted.Clear();
-            //odd.Clear();
         }
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e) {}
     }
 }

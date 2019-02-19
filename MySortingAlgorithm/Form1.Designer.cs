@@ -35,18 +35,20 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btnReset = new System.Windows.Forms.Button();
+            this.listBox2 = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // txtVal
             // 
-            this.txtVal.Location = new System.Drawing.Point(23, 38);
+            this.txtVal.Location = new System.Drawing.Point(15, 13);
+            this.txtVal.MaxLength = 14;
             this.txtVal.Name = "txtVal";
             this.txtVal.Size = new System.Drawing.Size(100, 20);
             this.txtVal.TabIndex = 0;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(23, 116);
+            this.btnAdd.Location = new System.Drawing.Point(15, 86);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 1;
@@ -56,7 +58,7 @@
             // 
             // btnSort
             // 
-            this.btnSort.Location = new System.Drawing.Point(23, 154);
+            this.btnSort.Location = new System.Drawing.Point(15, 124);
             this.btnSort.Name = "btnSort";
             this.btnSort.Size = new System.Drawing.Size(75, 23);
             this.btnSort.TabIndex = 2;
@@ -67,9 +69,9 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(199, 38);
+            this.listBox1.Location = new System.Drawing.Point(130, 12);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(184, 173);
+            this.listBox1.Size = new System.Drawing.Size(145, 173);
             this.listBox1.TabIndex = 3;
             // 
             // timer1
@@ -80,7 +82,7 @@
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(23, 187);
+            this.btnReset.Location = new System.Drawing.Point(15, 162);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 23);
             this.btnReset.TabIndex = 4;
@@ -89,11 +91,21 @@
             this.btnReset.Visible = false;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
+            // listBox2
+            // 
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.Location = new System.Drawing.Point(292, 13);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(145, 173);
+            this.listBox2.TabIndex = 5;
+            this.listBox2.SelectedIndexChanged += new System.EventHandler(this.listBox2_SelectedIndexChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(425, 239);
+            this.ClientSize = new System.Drawing.Size(447, 202);
+            this.Controls.Add(this.listBox2);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.btnSort);
@@ -114,6 +126,7 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.ListBox listBox2;
     }
 }
 
